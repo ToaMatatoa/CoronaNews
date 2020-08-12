@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.corona_news)
 
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNav.itemIconTintList = null
         bottomNav.setOnNavigationItemSelectedListener(navListener)
 
         if (savedInstanceState == null) {
