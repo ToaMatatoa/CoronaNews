@@ -4,16 +4,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.corona_news.*
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //Set main activity(UI)
         setContentView(R.layout.corona_news)
-
+        //Set Bottom Navigation View
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        //Removes tint for all elements of BNV
         bottomNav.itemIconTintList = null
         bottomNav.setOnNavigationItemSelectedListener(navListener)
 
@@ -23,6 +27,7 @@ class MainActivity : AppCompatActivity() {
                 NewsFragment()
             ).commit()
         }
+
     }
 
     private val navListener: BottomNavigationView.OnNavigationItemSelectedListener =
