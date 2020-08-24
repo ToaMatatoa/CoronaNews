@@ -8,21 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="Source">
-        <item name="fontFamily">@font/montserrat_regular</item>
-        <item name="android:textSize">30sp</item>
-        <item name="color">#757575</item>
+    <style name="font_regular_gray_14">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">@dimen/font_size_14</item>
+        <item name="android:textColor">@color/main_gray</item>
     </style>
 
-    <style name="Title">
+    <style name="font_medium_black_16">
         <item name="fontFamily">@font/montserrat_medium</item>
-        <item name="android:textSize">40sp</item>
-        <item name="color">#000000</item>
-    </style>
-    
-    <style name="Date">
-        <item name="fontFamily">@font/montserrat_regular</item>
-        <item name="android:textSize">30sp</item>
-        <item name="color">#757575</item>
+        <item name="android:textSize">@dimen/font_size_16</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>
