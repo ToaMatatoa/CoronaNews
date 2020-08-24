@@ -1,6 +1,6 @@
 package com.example.coronanews
 
-data class MyCountry(
+data class Country(
     val Country: String,
     val CountryCode: String,
     val CountryInfo: CountryInfo,
