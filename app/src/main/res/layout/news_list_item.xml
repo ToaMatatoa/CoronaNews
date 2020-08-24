@@ -1,52 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:padding="16dp">
+    android:layout_marginTop="@dimen/margin_size_4"
+    android:layout_marginBottom="@dimen/margin_size_4"
+    android:background="@drawable/background_rounded_corners_white"
+    android:paddingStart="@dimen/zero_size"
+    android:paddingEnd="@dimen/margin_size_default">
 
     <ImageView
-        android:id="@+id/icon_group"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        tools:src="@mipmap/ic_launcher" />
+        android:id="@+id/iv_news_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/zero_size"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_news_placeholder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/main_gray" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_source"
+        style="@style/font_regular_gray_14"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_size_default"
+        android:layout_marginTop="@dimen/margin_size_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_news_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="истотчник: glavred.info" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        style="@style/font_medium_black_16"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="@dimen/margin_size_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_source"
+        app:layout_constraintTop_toBottomOf="@+id/tv_source"
+        tools:text="Все заболели covid-19" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date"
+        style="@style/font_regular_gray_14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_marginTop="@dimen/margin_size_8"
+        android:layout_marginBottom="@dimen/margin_size_8"
+        android:drawableStart="@drawable/ic_clock"
+        android:drawablePadding="@dimen/margin_size_8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:text="27.07 at 7:09" />
 
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="User Name" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btn_favourite"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_marginStart="@dimen/margin_size_48"
+        android:layout_marginBottom="@dimen/margin_size_8"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/selector_favourite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_date" />
 
-        <TextView
-            android:id="@+id/repoName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="Repo Name" />
 
-        <TextView
-            android:id="@+id/repoDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="Repo Description" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
