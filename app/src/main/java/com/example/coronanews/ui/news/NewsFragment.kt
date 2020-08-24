@@ -1,25 +1,21 @@
-package com.example.coronanews
+package com.example.coronanews.ui.news
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.textclassifier.TextLinks.Request
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.coronanews.AdapterNews
+import com.example.coronanews.News
+import com.example.coronanews.R
 import kotlinx.android.synthetic.main.fragment_news.*
-import okhttp3.OkHttpClient
+import java.util.*
 
-class NewsFragment : Fragment() {
+class NewsFragment : Fragment(), NewsContract.Fragment {
 
-    private val items = listOf(
-        "me - my mas",
-        "me - my mas",
-        "me - my mas"
-    )
-    
+    private lateinit var newsAdapter : AdapterNews
+//    private val presenter = NewsPresenter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,17 +26,25 @@ class NewsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_news, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
-    @RequiresApi(Build.VERSION_CODES.P)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //Set recycler view
+        val addToFavourite: (News) -> Unit = {}
+
         rv_news.layoutManager = LinearLayoutManager(context)
-        rv_news.adapter = AdapterNews(items)
+        newsAdapter = AdapterNews(addToFavourite)
+        rv_news.adapter = newsAdapter
+
+        val news = listOf(News("", "", "", Date(), "", ""))
+        newsAdapter.addNews(news)
+
+//        presenter.getNews()
     }
+
+    override fun showNews(news: List<News>) {
+        newsAdapter.addNews(news)
+    }
+
+
 }
 
