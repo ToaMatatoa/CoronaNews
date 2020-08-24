@@ -1,9 +1,10 @@
 package com.example.coronanews
 
-class RequestNews {
+import android.util.Log
+import java.net.URL
 
-    fun run() {
-        //TODO: implement
+class RequestNews(private  val url: String) {
+    fun run(){
+        //
     }
-
 }

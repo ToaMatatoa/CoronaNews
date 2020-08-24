@@ -2,12 +2,15 @@ package com.example.coronanews
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.textclassifier.TextLinks
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.corona_news.*
+import okhttp3.Request
+import java.net.URL
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +30,6 @@ class MainActivity : AppCompatActivity() {
                 NewsFragment()
             ).commit()
         }
-
     }
 
     private val navListener: BottomNavigationView.OnNavigationItemSelectedListener =

@@ -1,25 +1,25 @@
 package com.example.coronanews
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.textclassifier.TextLinks.Request
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_news.*
+import okhttp3.OkHttpClient
 
 class NewsFragment : Fragment() {
 
     private val items = listOf(
-        "JetBrains/kotlin - The Kotlin Programming Language",
-        "exercism/kotlin - Exercism exercises in Kotlin",
-        "cbeust/kobalt - A Kotlin-based build system for the JVM",
-        "JetBrains/kotlin - The Kotlin Programming Language",
-        "exercism/kotlin - Exercism exercises in Kotlin",
-        "cbeust/kobalt - A Kotlin-based build system for the JVM",
-        "JetBrains/kotlin - The Kotlin Programming Language"
+        "me - my mas",
+        "me - my mas",
+        "me - my mas"
     )
+    
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +34,7 @@ class NewsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
     }
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -42,3 +43,4 @@ class NewsFragment : Fragment() {
         rv_news.adapter = AdapterNews(items)
     }
 }
+
