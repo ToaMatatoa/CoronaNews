@@ -10,6 +10,6 @@
         android:title="@string/menu_news" />
     <item
         android:id="@+id/menu_favourite"
-        android:icon="@drawable/selector_favourite"
+        android:icon="@drawable/selector_bookmark"
         android:title="@string/menu_favourite" />
 </menu>
