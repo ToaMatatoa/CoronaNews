@@ -14,7 +14,7 @@ import java.util.*
 
 class NewsFragment : Fragment(), NewsContract.Fragment {
 
-    private lateinit var newsAdapter : AdapterNews
+    private lateinit var newsAdapter: AdapterNews
 //    private val presenter = NewsPresenter()
 
     override fun onCreateView(
@@ -44,7 +44,5 @@ class NewsFragment : Fragment(), NewsContract.Fragment {
     override fun showNews(news: List<News>) {
         newsAdapter.addNews(news)
     }
-
-
 }
 

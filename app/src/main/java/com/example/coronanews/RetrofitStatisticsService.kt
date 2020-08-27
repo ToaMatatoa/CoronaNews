@@ -6,6 +6,6 @@ import retrofit2.http.GET
 interface RetrofitStatisticsService {
 
     @GET("summary")
-    fun getCountryList () : Single<List<Country>>
+    fun getCountryStatisticsList () : Single<List<WorldStatistics>>
 
 }
