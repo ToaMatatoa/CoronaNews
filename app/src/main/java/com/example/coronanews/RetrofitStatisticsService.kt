@@ -6,12 +6,12 @@ import retrofit2.http.Query
 
 interface RetrofitStatisticsService {
 
-    @GET("summary")
+    @GET("")
     fun getWorldStatisticsList (
         @Query("summary") worldStatistics: String
     ) : Single<List<WorldStatistics>>
 
-    @GET("live/country/europe/status/confirmed")
+    @GET("")
     fun getCountryStatisticsList(
         @Query("live") live: Boolean,
         @Query("country") country: String,

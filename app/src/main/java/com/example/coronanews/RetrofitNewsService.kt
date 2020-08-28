@@ -7,7 +7,7 @@ import java.util.*
 
 interface RetrofitNewsService {
 
-    @GET("v1/covid?topic=news&lang=ru&sort_by=date&page_size=20&media=True&country=UA&page=1&q=covid")
+    @GET("v1/covid")
     fun getNewsList(
         @Query("x-rapidapi-key") key : String,
         @Query("topic") topic: String,
