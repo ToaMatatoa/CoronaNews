@@ -3,6 +3,7 @@ package com.example.coronanews
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.coronanews.model.news.News
 import kotlinx.android.synthetic.main.news_list_item.view.*
 import java.text.SimpleDateFormat
 

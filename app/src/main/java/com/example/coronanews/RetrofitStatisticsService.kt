@@ -1,5 +1,7 @@
 package com.example.coronanews
 
+import com.example.coronanews.model.graph.CountryStatistics
+import com.example.coronanews.model.graph.WorldStatistics
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

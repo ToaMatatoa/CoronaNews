@@ -1,6 +1,6 @@
 package com.example.coronanews.ui.news
 
-import com.example.coronanews.News
+import com.example.coronanews.model.news.News
 
 interface NewsContract {
 
