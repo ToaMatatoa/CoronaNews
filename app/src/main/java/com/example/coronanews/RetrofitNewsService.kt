@@ -4,7 +4,6 @@ import com.example.coronanews.model.news.News
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
-import java.util.*
 
 interface RetrofitNewsService {
 
@@ -12,7 +11,7 @@ interface RetrofitNewsService {
     fun getNewsList(
         @Query("topic") topic: String,
         @Query("lang") language: String,
-        @Query("sort_by") sortBy: Date,
+        @Query("sort_by") sortBy: String,
         @Query("page_size") pageSize: Int,
         @Query("media") haveImage: Boolean,
         @Query("country") country: String,
@@ -20,5 +19,5 @@ interface RetrofitNewsService {
         @Query("q") searchWord: String
     ): Single<List<News>>
 
-    abstract fun getNewsList(): Single<List<News>>
+
 }

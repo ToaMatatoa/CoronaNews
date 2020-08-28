@@ -9,6 +9,7 @@ class RemoteDataSource {
     private val retrofitNewsService by lazy {RetrofitClient.newsWebService()}
 
     fun getNewsList(): Single<List<News>> {
-        return retrofitNewsService.getNewsList()
+        return retrofitNewsService.getNewsList(country = "UA", topic = "news", language = "ru",
+            sortBy = "date", pageSize = 20, haveImage = true, pageNumber = 1, searchWord = "covid")
     }
 }
