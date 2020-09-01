@@ -35,6 +35,7 @@ object RetrofitClient {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
+
         return retrofit.create(RetrofitNewsService::class.java)
     }
 

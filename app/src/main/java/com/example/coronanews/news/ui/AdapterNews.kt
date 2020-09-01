@@ -1,19 +1,21 @@
-package com.example.coronanews
+package com.example.coronanews.news.ui
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.coronanews.model.news.News
+import com.example.coronanews.R
+import com.example.coronanews.news.model.NewsResponse
 import kotlinx.android.synthetic.main.news_list_item.view.*
 import java.text.SimpleDateFormat
 
-class AdapterNews(private val listener: (News) -> Unit) :
+class AdapterNews(private val listener: (NewsResponse.Article) -> Unit) :
     RecyclerView.Adapter<AdapterNews.ViewHolder>() {
 
-    private val items = mutableListOf<News>()
+    private val items = mutableListOf<NewsResponse.Article>()
 
-    fun addNews(news: List<News>) {
-        items.addAll(news)
+    fun addNews(newsDataItems: List<NewsResponse.Article>) {
+        items.addAll(newsDataItems)
         notifyDataSetChanged()
     }
 
@@ -29,7 +31,8 @@ class AdapterNews(private val listener: (News) -> Unit) :
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val dateFormatter = "DD.MM K:mm"
-        fun bind(item: News, listener: (News) -> Unit) = with(itemView) {
+        @SuppressLint("SimpleDateFormat")
+        fun bind(item: NewsResponse.Article, listener: (NewsResponse.Article) -> Unit) = with(itemView) {
             tv_source.text = item.source
             tv_title.text = item.title
             tv_date.text = SimpleDateFormat(dateFormatter).format(item.publishedDate)
