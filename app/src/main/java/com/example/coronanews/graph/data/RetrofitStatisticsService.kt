@@ -1,7 +1,7 @@
-package com.example.coronanews
+package com.example.coronanews.graph.data
 
-import com.example.coronanews.model.graph.CountryStatistics
-import com.example.coronanews.model.graph.WorldStatistics
+import com.example.coronanews.graph.model.CountryStatistics
+import com.example.coronanews.graph.model.WorldStatistics
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

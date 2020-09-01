@@ -1,4 +1,4 @@
-package com.example.coronanews.model.graph
+package com.example.coronanews.graph.model
 
 import androidx.databinding.BaseObservable
 import java.util.*
