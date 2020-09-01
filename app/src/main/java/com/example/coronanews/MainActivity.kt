@@ -3,7 +3,9 @@ package com.example.coronanews
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.coronanews.ui.news.NewsFragment
+import com.example.coronanews.bookmark.ui.FavouriteFragment
+import com.example.coronanews.graph.ui.GraphFragment
+import com.example.coronanews.news.ui.NewsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

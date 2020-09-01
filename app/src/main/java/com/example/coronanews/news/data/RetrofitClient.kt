@@ -1,5 +1,6 @@
-package com.example.coronanews
+package com.example.coronanews.news.data
 
+import com.example.coronanews.graph.data.RetrofitStatisticsService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -8,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    private const val newsURL = "https://covid-19-news.p.rapidapi.com/"
+    private const val newsURL = "https://covid-19-newsDataItems.p.rapidapi.com/"
     private const val statisticsURL = "https://api.covid19api.com/"
 
     fun newsWebService(): RetrofitNewsService {
@@ -17,8 +18,11 @@ object RetrofitClient {
             addInterceptor(
                 Interceptor { chain ->
                     val builder = chain.request().newBuilder()
-                    builder.header("X-RapidAPI-Host", "covid-19-news.p.rapidapi.com")
-                    builder.header("X-RapidAPI-Key", "1fb34b6850mshf697836118ae0aep110610jsn7c63a5dfe31c")
+                    builder.header("X-RapidAPI-Host", "covid-19-newsDataItems.p.rapidapi.com")
+                    builder.header(
+                        "X-RapidAPI-Key",
+                        "1fb34b6850mshf697836118ae0aep110610jsn7c63a5dfe31c"
+                    )
                     return@Interceptor chain.proceed((builder.build()))
                 }
             )

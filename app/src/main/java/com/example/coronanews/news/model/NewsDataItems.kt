@@ -1,8 +1,8 @@
-package com.example.coronanews.model.news
+package com.example.coronanews.news.model
 
 import java.util.*
 
-data class News(
+data class NewsDataItems(
     val id: String? = "",
     val source: String? = "",
     val link: String? = "",

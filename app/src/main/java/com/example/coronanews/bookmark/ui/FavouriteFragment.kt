@@ -1,10 +1,11 @@
-package com.example.coronanews
+package com.example.coronanews.bookmark.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.coronanews.R
 
 class FavouriteFragment : Fragment() {
     override fun onCreateView(

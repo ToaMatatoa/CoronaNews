@@ -1,6 +1,6 @@
-package com.example.coronanews
+package com.example.coronanews.news.data
 
-import com.example.coronanews.model.news.News
+import com.example.coronanews.news.model.NewsResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,7 +17,5 @@ interface RetrofitNewsService {
         @Query("country") country: String,
         @Query("page") pageNumber: Int,
         @Query("q") searchWord: String
-    ): Single<List<News>>
-
-
+    ): Single<NewsResponse>
 }
