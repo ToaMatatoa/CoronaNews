@@ -10,12 +10,11 @@ import com.example.coronanews.AdapterNews
 import com.example.coronanews.R
 import com.example.coronanews.model.news.News
 import kotlinx.android.synthetic.main.fragment_news.*
-import java.util.*
 
 class NewsFragment : Fragment(), NewsContract.Fragment {
 
     private lateinit var newsAdapter: AdapterNews
-//    private val presenter = NewsPresenter()
+    private val presenter = NewsPresenter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,10 +34,7 @@ class NewsFragment : Fragment(), NewsContract.Fragment {
         newsAdapter = AdapterNews(addToFavourite)
         rv_news.adapter = newsAdapter
 
-        val news = listOf(News("", "", "", Date(), "", ""))
-        newsAdapter.addNews(news)
-
-//        presenter.getNews()
+        presenter.getNews()
     }
 
     override fun showNews(news: List<News>) {
