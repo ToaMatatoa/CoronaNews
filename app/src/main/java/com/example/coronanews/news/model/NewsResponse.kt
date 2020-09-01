@@ -3,15 +3,9 @@ package com.example.coronanews.news.model
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-class NewsResponse(@SerializedName("result") var data: Properties) {
+class NewsResponse(@SerializedName("articles") var data: List<Article>) {
 
-    data class Properties(@SerializedName("properties") var properties: Articles)
-
-    data class Articles(@SerializedName("articles") var articles: List<Article>)
-
-    data class Article(@SerializedName("items") val newsDataItems: NewsDataItems)
-
-    data class NewsDataItems(
+    data class Article(
         @SerializedName("id") val id: String,
         @SerializedName("source") val source: String,
         @SerializedName("link") val link: String,
