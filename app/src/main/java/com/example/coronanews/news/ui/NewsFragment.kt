@@ -1,4 +1,4 @@
-package com.example.coronanews.ui.news
+package com.example.coronanews.news.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,15 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.coronanews.AdapterNews
 import com.example.coronanews.R
-import com.example.coronanews.model.news.News
+import com.example.coronanews.news.model.NewsResponse
 import kotlinx.android.synthetic.main.fragment_news.*
 
-class NewsFragment : Fragment(), NewsContract.Fragment {
+class NewsFragment : Fragment(), NewsContract.View {
 
     private lateinit var newsAdapter: AdapterNews
-    private val presenter = NewsPresenter()
+    private val presenter = NewsPresenter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +27,7 @@ class NewsFragment : Fragment(), NewsContract.Fragment {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val addToFavourite: (News) -> Unit = {}
+        val addToFavourite: (NewsResponse.Article) -> Unit = {}
 
         rv_news.layoutManager = LinearLayoutManager(context)
         newsAdapter = AdapterNews(addToFavourite)
@@ -37,8 +36,13 @@ class NewsFragment : Fragment(), NewsContract.Fragment {
         presenter.getNews()
     }
 
-    override fun showNews(news: List<News>) {
-        newsAdapter.addNews(news)
+    override fun showNews(newsDataItems: List<NewsResponse.Article>) {
+        newsAdapter.addNews(newsDataItems)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDestroy()
     }
 }
 
