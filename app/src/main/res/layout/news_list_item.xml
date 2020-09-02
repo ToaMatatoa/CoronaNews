@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin_size_4"
@@ -18,30 +17,28 @@
         android:src="@drawable/ic_news_placeholder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:background="@color/main_gray" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_source"
         style="@style/font_regular_gray_14"
-        android:layout_width="@dimen/zero_size"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_size_default"
         android:layout_marginTop="@dimen/margin_size_8"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_news_icon"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_title"
         style="@style/font_medium_black_16"
-        android:layout_width="@dimen/zero_size"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:ellipsize="end"
+        android:layout_marginStart="@dimen/margin_size_default"
         android:layout_marginTop="@dimen/margin_size_8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_source"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintStart_toEndOf="@+id/iv_news_icon"
         app:layout_constraintTop_toBottomOf="@+id/tv_source" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -49,12 +46,13 @@
         style="@style/font_regular_gray_14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_size_default"
         android:layout_marginTop="@dimen/margin_size_8"
         android:layout_marginBottom="@dimen/margin_size_8"
         android:drawableStart="@drawable/ic_clock"
         android:drawablePadding="@dimen/margin_size_8"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintStart_toEndOf="@+id/iv_news_icon"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -69,6 +67,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_date" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
