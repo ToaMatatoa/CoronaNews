@@ -8,7 +8,7 @@ class NewsResponseInterceptor : Interceptor {
         val response = chain.proceed(chain.request())
 
         return response.newBuilder()
-            .addHeader("Content-Type", "application/json; charset=utf-8-text")
+            .addHeader("Content-Type", "application/json; charset=utf-8")
             .build()
     }
 }
