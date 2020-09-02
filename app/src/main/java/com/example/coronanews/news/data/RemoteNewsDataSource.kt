@@ -9,7 +9,7 @@ class RemoteNewsDataSource {
 
     fun getNewsList(): Single<List<NewsResponse.Article>> {
         return retrofitNewsService.getNewsList(
-            country = "UA", topic = "newsDataItems", language = "ru",
+            country = "UA", topic = "news", language = "en",
             sortBy = "date", pageSize = 20, haveImage = true, pageNumber = 1, searchWord = "covid"
         ).map { it.data }
     }
