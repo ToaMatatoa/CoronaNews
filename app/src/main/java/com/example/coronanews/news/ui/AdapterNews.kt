@@ -30,13 +30,15 @@ class AdapterNews(private val listener: (NewsResponse.Article) -> Unit) :
     override fun getItemCount(): Int = items.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val dateFormatter = "DD.MM K:mm"
+        private val dateFormatter = "MM-dd HH:mm"
+
         @SuppressLint("SimpleDateFormat")
-        fun bind(item: NewsResponse.Article, listener: (NewsResponse.Article) -> Unit) = with(itemView) {
-            tv_source.text = item.source
-            tv_title.text = item.title
-            tv_date.text = SimpleDateFormat(dateFormatter).format(item.publishedDate)
-            setOnClickListener { listener(item) }
-        }
+        fun bind(item: NewsResponse.Article, listener: (NewsResponse.Article) -> Unit) =
+            with(itemView) {
+                tv_source.text = item.source
+                tv_title.text = item.title
+                tv_date.text = SimpleDateFormat(dateFormatter).format(item.publishedDate)
+                setOnClickListener { listener(item) }
+            }
     }
 }
