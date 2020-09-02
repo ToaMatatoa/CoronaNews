@@ -6,10 +6,10 @@ import java.util.*
 class NewsResponse(@SerializedName("articles") var data: List<Article>) {
 
     data class Article(
-        @SerializedName("id") val id: String,
-        @SerializedName("source") val source: String,
+        @SerializedName("_id") val id: String,
+        @SerializedName("clean_url") val source: String,
         @SerializedName("link") val link: String,
-        @SerializedName("publishedDate") val publishedDate: Date,
+        @SerializedName("published_date") val publishedDate: Date,
         @SerializedName("summary") val summary: String,
         @SerializedName("title") val title: String
     )
