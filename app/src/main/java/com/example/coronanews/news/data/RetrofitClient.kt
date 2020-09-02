@@ -1,6 +1,7 @@
 package com.example.coronanews.news.data
 
 import com.example.coronanews.graph.data.RetrofitStatisticsService
+import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -35,11 +36,12 @@ object RetrofitClient {
             addInterceptor(logging)
         }.build()
 
+        val gson = GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create()
         val retrofit = Retrofit.Builder()
             .baseUrl(newsURL)
             .client(okHttpClient.newBuilder().build())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
         return retrofit.create(RetrofitNewsService::class.java)
