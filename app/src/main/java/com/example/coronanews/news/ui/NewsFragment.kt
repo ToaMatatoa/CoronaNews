@@ -10,6 +10,7 @@ import com.example.coronanews.R
 import com.example.coronanews.news.model.NewsResponse
 import kotlinx.android.synthetic.main.fragment_news.*
 
+
 class NewsFragment : Fragment(), NewsContract.View {
 
     private lateinit var newsAdapter: AdapterNews
@@ -30,6 +31,7 @@ class NewsFragment : Fragment(), NewsContract.View {
         val addToFavourite: (NewsResponse.Article) -> Unit = {}
 
         rv_news.layoutManager = LinearLayoutManager(context)
+
         newsAdapter = AdapterNews(addToFavourite)
         rv_news.adapter = newsAdapter
 

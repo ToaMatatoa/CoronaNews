@@ -11,6 +11,7 @@ class NewsResponse(@SerializedName("articles") var data: List<Article>) {
         @SerializedName("link") val link: String,
         @SerializedName("published_date") val publishedDate: Date,
         @SerializedName("summary") val summary: String,
-        @SerializedName("title") val title: String
+        @SerializedName("title") val title: String,
+        //@SerializedName("media") val image: Image
     )
 }
