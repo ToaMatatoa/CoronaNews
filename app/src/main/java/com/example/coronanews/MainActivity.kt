@@ -11,12 +11,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        supportActionBar?.hide()
         super.onCreate(savedInstanceState)
-        //Set main activity(UI)
         setContentView(R.layout.corona_news)
-        //Set Bottom Navigation View
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_navigation)
-        //Removes tint for all elements of BNV
         bottomNav.itemIconTintList = null
         bottomNav.setOnNavigationItemSelectedListener(navListener)
 
