@@ -21,10 +21,11 @@
 
     <ImageView
         android:id="@+id/iv_news_icon"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:contentDescription="@null"
-        android:src="@drawable/ic_news_placeholder"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@id/v_bottom"
         app:layout_constraintStart_toStartOf="@id/v_background_white"
         app:layout_constraintTop_toTopOf="@id/v_background_white" />
 
@@ -48,6 +49,7 @@
         android:layout_marginTop="@dimen/margin_size_8"
         android:ellipsize="end"
         android:maxLines="3"
+        android:paddingEnd="@dimen/margin_size_8"
         app:layout_constraintEnd_toEndOf="@id/v_background_white"
         app:layout_constraintStart_toEndOf="@+id/iv_news_icon"
         app:layout_constraintTop_toBottomOf="@+id/tv_source" />
@@ -59,18 +61,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_size_default"
         android:layout_marginTop="@dimen/margin_size_8"
-        android:layout_marginBottom="@dimen/margin_size_8"
+        android:layout_marginBottom="6dp"
         android:drawableStart="@drawable/ic_clock"
         android:drawablePadding="@dimen/margin_size_8"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@id/v_background_white"
         app:layout_constraintStart_toEndOf="@+id/iv_news_icon"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
     <androidx.appcompat.widget.AppCompatImageView
+
         android:id="@+id/btn_favourite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/font_size_16"
+        android:layout_marginEnd="@dimen/margin_size_8"
         android:layout_marginBottom="@dimen/margin_size_8"
         android:clickable="true"
         android:focusable="true"
