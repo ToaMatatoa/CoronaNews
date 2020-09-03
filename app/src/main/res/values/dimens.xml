@@ -7,6 +7,7 @@
     <dimen name="margin_size_12">12dp</dimen>
     <dimen name="margin_size_20">20dp</dimen>
     <dimen name="margin_size_32">32dp</dimen>
+    <dimen name="margin_size_40">40dp</dimen>
     <dimen name="margin_size_48">48dp</dimen>
     <dimen name="margin_size_72">72dp</dimen>
 
