@@ -20,9 +20,9 @@
                 android:id="@+id/rv_news"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_size_20"
+                android:layout_marginStart="@dimen/margin_size_12"
                 android:layout_marginTop="@dimen/margin_size_default"
-                android:layout_marginEnd="@dimen/margin_size_20"
+                android:layout_marginEnd="@dimen/margin_size_12"
                 android:layout_marginBottom="@dimen/margin_size_default"
                 android:scrollbars="vertical"
                 tools:listitem="@layout/news_list_item" />
