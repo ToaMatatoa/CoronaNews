@@ -21,7 +21,8 @@ class GraphPresenter(private val view: GraphContract.View) : GraphContract.Prese
                     view.showWorldStatistics(it)
                 }, {
                     Log.getStackTraceString(it)
-                })
+                }
+                )
         )
     }
 

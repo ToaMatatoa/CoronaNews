@@ -5,7 +5,7 @@ import com.example.coronanews.graph.model.WorldStatisticsResponse
 interface GraphContract {
 
     interface View {
-        fun showWorldStatistics(worldStatisticsDataItems: WorldStatisticsResponse)
+        fun showWorldStatistics(worldStatisticsDataItems: WorldStatisticsResponse.Global)
     }
 
     interface Presenter{
