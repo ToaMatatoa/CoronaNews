@@ -3,7 +3,13 @@ package com.example.coronanews.news.model
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-class NewsResponse(@SerializedName("articles") var data: List<Article>) {
+class NewsResponse(
+   // @SerializedName("total_hits") var totalHits: Int,
+   // @SerializedName("page") var currentPage: Int,
+   // @SerializedName("total_pages") var totalPages: Int,
+   // @SerializedName("page_size") var pageSize: Int,
+    @SerializedName("articles") var data: List<Article>
+) {
 
     data class Article(
         @SerializedName("_id") val id: String,
@@ -14,4 +20,5 @@ class NewsResponse(@SerializedName("articles") var data: List<Article>) {
         @SerializedName("title") val title: String,
         @SerializedName("media") val imageString: String?
     )
+
 }
