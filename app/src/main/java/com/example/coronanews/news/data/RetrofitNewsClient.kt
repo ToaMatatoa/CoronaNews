@@ -30,7 +30,7 @@ object RetrofitNewsClient {
                     return@Interceptor chain.proceed((builder.build()))
                 }
             )
-            addInterceptor(NewsResponseInterceptor())
+            addInterceptor(RetrofitResponseInterceptor())
             addInterceptor(logging)
         }.build()
 

@@ -5,7 +5,7 @@ import io.reactivex.Single
 
 class NewsRepository {
 
-    private val remoteDataStore = RemoteNewsDataSource()
+    private val remoteDataStore = RemoteNewsDataStore()
 
     fun getNewsList(): Single<List<NewsResponse.Article>> {
         return remoteDataStore.getNewsList()

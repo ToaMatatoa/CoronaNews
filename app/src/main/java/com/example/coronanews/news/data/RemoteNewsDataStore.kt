@@ -3,9 +3,10 @@ package com.example.coronanews.news.data//package com.example.coronanews.data.ne
 import com.example.coronanews.news.model.NewsResponse
 import io.reactivex.Single
 
-class RemoteNewsDataSource {
+class RemoteNewsDataStore {
 
-    private val retrofitNewsService by lazy { RetrofitNewsClient.newsWebService() }
+    private val retrofitNewsService
+            by lazy { RetrofitNewsClient.newsWebService() }
 
     fun getNewsList(): Single<List<NewsResponse.Article>> {
         return retrofitNewsService.getNewsList(
