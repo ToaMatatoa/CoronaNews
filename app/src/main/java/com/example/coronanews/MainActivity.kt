@@ -11,7 +11,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         supportActionBar?.hide()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.corona_news)
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_navigation)

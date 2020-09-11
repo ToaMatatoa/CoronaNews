@@ -6,7 +6,7 @@ interface NewsContract {
 
     interface View {
         fun showNews(newsDataItems: List<NewsResponse.Article>)
-    }
+     }
 
     interface Presenter {
         fun getNews()

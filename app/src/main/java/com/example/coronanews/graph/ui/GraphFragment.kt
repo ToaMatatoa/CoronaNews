@@ -15,8 +15,4 @@ class GraphFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_graph, container, false)
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
 }
