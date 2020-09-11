@@ -1,16 +1,16 @@
 package com.example.coronanews.graph.model
 
-import androidx.databinding.BaseObservable
+import com.google.gson.annotations.SerializedName
 
-object WorldStatisticsResponse {
+class WorldStatisticsResponse(@SerializedName("Global") val data: Global) {
 
-    data class Result(val data: Global)
+    data class Global(
+        @SerializedName("NewConfirmed") val newConfirmed: Int,
+        @SerializedName("NewDeaths") val newDeaths: Int,
+        @SerializedName("NewRecovered") val newRecovered: Int,
+        @SerializedName("TotalConfirmed") val totalConfirmed: Int,
+        @SerializedName("TotalDeaths") val totalDeaths: Int,
+        @SerializedName("TotalRecovered") val totalRecovered: Int
+    )
 
-    data class Global(val data: List<Data>)
-
-    data class Data(
-        val NewConfirmed: Int, val NewDeaths: Int, val NewRecovered: Int,
-        val TotalConfirmed: Int, val TotalDeaths: Int, val TotalRecovered: Int
-    ) : BaseObservable() {
-    }
 }
