@@ -5,9 +5,9 @@ import io.reactivex.Single
 
 class WorldStatisticsRepository {
 
-    private val remoteDataStore = RemoteWorldStatisticsDataSource()
+    private val remoteDataStore = RemoteWorldStatisticsDataStore()
 
-    fun getWorldStatistics(): Single<WorldStatisticsResponse> {
+    fun getWorldStatistics(): Single<WorldStatisticsResponse.Global> {
         return remoteDataStore.getWorldStatistics()
     }
 }
