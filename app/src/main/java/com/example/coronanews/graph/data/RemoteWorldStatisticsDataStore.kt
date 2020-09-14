@@ -1,14 +1,18 @@
 package com.example.coronanews.graph.data
 
-import com.example.coronanews.graph.model.WorldStatisticsResponse
+import com.example.coronanews.graph.model.SummaryStatisticsResponse
 import io.reactivex.Single
 
 class RemoteWorldStatisticsDataStore {
 
-    private val retrofitWorldStatisticsService
+    private val retrofitStatisticsService
             by lazy { RetrofitStatisticsClient.statisticsWebService() }
 
-    fun getWorldStatistics(): Single<WorldStatisticsResponse.Global>{
-        return retrofitWorldStatisticsService.getWorldStatistics().map { it.data }
+    fun getWorldStatistics(): Single<SummaryStatisticsResponse.Global>{
+        return retrofitStatisticsService.getStatistics().map { it.global }
+    }
+
+    fun getCountryStatistics(): Single<List<SummaryStatisticsResponse.Country>>{
+        return retrofitStatisticsService.getStatistics().map { it.countries }
     }
 }
