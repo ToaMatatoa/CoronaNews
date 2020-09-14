@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.coronanews.R
+import com.example.coronanews.graph.model.CountryLiveResponse
 import com.example.coronanews.graph.model.SummaryStatisticsResponse
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
@@ -33,6 +34,8 @@ class GraphFragment : Fragment(), GraphContract.View {
         super.onViewCreated(view, savedInstanceState)
 
         presenter.getWorldStatistics()
+        presenter.getCountryStatistics()
+        presenter.getLiveStatistics()
     }
 
     override fun showWorldStatistics(worldStatisticsDataItems: SummaryStatisticsResponse.Global) {
@@ -54,6 +57,14 @@ class GraphFragment : Fragment(), GraphContract.View {
         val l: Legend = pie_chart.legend
         l.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM
         l.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER
+    }
+
+    override fun showCountryStatistics(countryStatisticsDataItems: List<SummaryStatisticsResponse.Country>) {
+
+    }
+
+    override fun showLiveStatistics(liveStatisticsDataItem: List<CountryLiveResponse>) {
+
     }
 
     override fun onDestroy() {

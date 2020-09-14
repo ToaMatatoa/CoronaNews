@@ -1,20 +1,20 @@
 package com.example.coronanews.graph.ui
 
 import android.util.Log
-import com.example.coronanews.graph.data.WorldStatisticsRepositoryProvider
+import com.example.coronanews.graph.data.StatisticsRepositoryProvider
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class GraphPresenter(private val view: GraphContract.View) : GraphContract.Presenter {
 
-    private val worldStatisticsRepository =
-        WorldStatisticsRepositoryProvider.worldStatisticsRepositoryProvider()
+    private val statisticsRepository =
+        StatisticsRepositoryProvider.worldStatisticsRepositoryProvider()
     private val compositeDisposable = CompositeDisposable()
 
     override fun getWorldStatistics() {
         compositeDisposable.add(
-            worldStatisticsRepository.getWorldStatistics()
+            statisticsRepository.getWorldStatistics()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
@@ -23,6 +23,34 @@ class GraphPresenter(private val view: GraphContract.View) : GraphContract.Prese
                     Log.getStackTraceString(it)
                 }
                 )
+        )
+    }
+
+    override fun getCountryStatistics() {
+        compositeDisposable.add(
+            statisticsRepository.getCountryStatistics()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    view.showCountryStatistics(it)
+                },
+                    {
+                        Log.getStackTraceString(it)
+                    })
+        )
+    }
+
+    override fun getLiveStatistics() {
+        compositeDisposable.add(
+            statisticsRepository.getLiveStatistics()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    view.showLiveStatistics(it)
+                },
+                    {
+                        Log.getStackTraceString(it)
+                    })
         )
     }
 
