@@ -10,11 +10,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitStatisticsClient {
 
-    private const val statisticsURL = "https://api.covid19api.com/"
+    private const val API_STATISTICS_URL = "https://api.covid19api.com/"
+    private val gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssX").create()
+    private val logging = HttpLoggingInterceptor()
 
-    fun statisticsWebService(): RetrofitStatisticsService {
+    fun worldStatisticsService(): RetrofitStatisticsService {
 
-        val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
 
         val okHttpClient = OkHttpClient.Builder().apply {
@@ -22,9 +23,27 @@ object RetrofitStatisticsClient {
             addInterceptor(logging)
         }.build()
 
-        val gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssX").create()
         val retrofit = Retrofit.Builder()
-            .baseUrl(statisticsURL)
+            .baseUrl(API_STATISTICS_URL)
+            .client(okHttpClient.newBuilder().build())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+
+        return retrofit.create(RetrofitStatisticsService::class.java)
+    }
+
+    fun liveStatisticsService(): RetrofitStatisticsService {
+
+        logging.level = HttpLoggingInterceptor.Level.BODY
+
+        val okHttpClient = OkHttpClient.Builder().apply {
+            addInterceptor(RetrofitResponseInterceptor())
+            addInterceptor(logging)
+        }.build()
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl(API_STATISTICS_URL)
             .client(okHttpClient.newBuilder().build())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
