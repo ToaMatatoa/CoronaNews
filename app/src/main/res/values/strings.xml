@@ -3,4 +3,5 @@
     <string name="menu_graph">Graph</string>
     <string name="menu_news">News</string>
     <string name="menu_favourite">Favourite</string>
+    <string name="covid_world_statistics">Covid world statistics</string>
 </resources>
