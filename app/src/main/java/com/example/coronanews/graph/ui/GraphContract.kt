@@ -1,11 +1,11 @@
 package com.example.coronanews.graph.ui
 
-import com.example.coronanews.graph.model.WorldStatisticsResponse
+import com.example.coronanews.graph.model.SummaryStatisticsResponse
 
 interface GraphContract {
 
     interface View {
-        fun showWorldStatistics(worldStatisticsDataItems: WorldStatisticsResponse.Global)
+        fun showWorldStatistics(worldStatisticsDataItems: SummaryStatisticsResponse.Global)
     }
 
     interface Presenter{
