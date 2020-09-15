@@ -13,6 +13,7 @@ import com.example.coronanews.graph.model.Global
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.LegendEntry
 import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
@@ -140,16 +141,21 @@ class GraphFragment : Fragment(), GraphContract.View {
             )
         )
 
+        val yAxis: YAxis = bar_chart.axisLeft
+        yAxis.axisMinimum = 0f
+
         val data = BarData(set)
         data.setValueTextSize(11f)
         data.barWidth = 0.9f
 
         bar_chart.data = data
         bar_chart.setFitBars(true)
+        bar_chart.isScaleYEnabled = true
         bar_chart.description.isEnabled = false
         bar_chart.animateXY(1000, 1000)
         bar_chart.axisRight.isEnabled = false
         bar_chart.xAxis.valueFormatter = BarChartXAxisFormatter()
+
         bar_chart.invalidate()
 
         //Bar Chart Ukraine, Russia, USA with data set
@@ -175,33 +181,40 @@ class GraphFragment : Fragment(), GraphContract.View {
         barDataSetRu.color = resources.getColor((R.color.orange))
         val barDataSetUSA = BarDataSet(barEntriesDied, "Died")
         barDataSetUSA.color = resources.getColor((R.color.red))
-        val xAxisCountries = arrayOf("Ukraine", "Russia", "USA")
 
         val barSpace = 0.02f
-        val groupSpace = 0.3f
+        val groupSpace = 0.01f
         val groupCount = 3
 
         val barData = BarData(barDataSetUA, barDataSetRu, barDataSetUSA)
-        barData.barWidth = 0.8f
+        barData.barWidth = 0.31f
+        barData.setValueTextSize(7.5f)
 
-        bar_chart_data_set.data = barData
-        bar_chart_data_set.xAxis.axisMinimum = 0F
-        bar_chart_data_set.xAxis.axisMaximum =
-            0 + bar_chart_data_set.barData.getGroupWidth(groupSpace, barSpace) * groupCount
-        bar_chart_data_set.groupBars(0F, groupSpace, barSpace)
-        bar_chart_data_set.description.isEnabled = false
-        bar_chart_data_set.axisRight.isEnabled = false
-        bar_chart_data_set.axisLeft.axisMinimum = 0F
+        bar_chart_triple.data = barData
+        bar_chart_triple.xAxis.axisMinimum = 0F
+        bar_chart_triple.xAxis.axisMaximum =
+            0 + bar_chart_triple.barData.getGroupWidth(groupSpace, barSpace) * groupCount
+        bar_chart_triple.groupBars(0F, groupSpace, barSpace)
+        bar_chart_triple.description.isEnabled = false
+        bar_chart_triple.axisRight.isEnabled = false
+        bar_chart_triple.axisLeft.axisMinimum = 0F
+        bar_chart_triple.setPinchZoom(true)
 
-        val xAxis: XAxis = bar_chart_data_set.xAxis
+        val xAxisCountries = arrayOf("Ukraine", "Russia", "USA")
+        val xAxis: XAxis = bar_chart_triple.xAxis
         xAxis.valueFormatter = IndexAxisValueFormatter(xAxisCountries)
         xAxis.position = XAxis.XAxisPosition.BOTTOM
-        xAxis.granularity = 1F
         xAxis.setCenterAxisLabels(true)
+        xAxis.setDrawLabels(true)
         xAxis.isGranularityEnabled = true
 
-        val legendTripleBar = bar_chart_data_set.legend
+        val yAxisTriple: YAxis = bar_chart_triple.axisLeft
+        yAxisTriple.textSize = 8f
+
+        val legendTripleBar = bar_chart_triple.legend
         legendTripleBar.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER
+        legendTripleBar.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM
+        legendTripleBar.textSize = 10f
     }
 
     override fun showLiveStatistics(liveStatisticsDataItem: List<CountryLiveResponse>) {

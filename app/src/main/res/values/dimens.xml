@@ -5,7 +5,9 @@
     <dimen name="margin_size_default">16dp</dimen>
     <dimen name="margin_size_8">8dp</dimen>
     <dimen name="margin_size_12">12dp</dimen>
+    <dimen name="margin_size_16">16dp</dimen>
     <dimen name="margin_size_20">20dp</dimen>
+    <dimen name="margin_size_24">24dp</dimen>
     <dimen name="margin_size_32">32dp</dimen>
     <dimen name="margin_size_40">40dp</dimen>
     <dimen name="margin_size_48">48dp</dimen>
@@ -19,4 +21,5 @@
     <dimen name="font_size_16">16sp</dimen>
     <dimen name="font_size_18">18sp</dimen>
     <dimen name="font_size_24">24sp</dimen>
+    <dimen name="margin_size_156">156dp</dimen>
 </resources>
