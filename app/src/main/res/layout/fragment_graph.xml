@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tv_statistics_graph"
+                android:id="@+id/tv_pie_statistics"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginTop="@dimen/margin_size_40"
@@ -29,19 +29,38 @@
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/pie_chart"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
                 android:layout_marginTop="@dimen/font_size_16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_statistics_graph" />
+                app:layout_constraintTop_toBottomOf="@id/tv_pie_statistics" />
+
+            <TextView
+                android:id="@+id/tv_bar_statistics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/font_size_16"
+                android:text="@string/covid_ukraine_statistics"
+                android:textAlignment="center"
+                android:textSize="@dimen/font_size_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pie_chart" />
 
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/bar_chart"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:layout_marginTop="@dimen/font_size_24"
-                app:layout_constraintTop_toBottomOf="@id/pie_chart" />
+                app:layout_constraintTop_toBottomOf="@id/tv_bar_statistics" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/bar_chart_data_set"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="@dimen/font_size_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bar_chart" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
